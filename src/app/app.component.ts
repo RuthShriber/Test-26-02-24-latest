@@ -45,7 +45,6 @@ export class AppComponent {
   }
 
   valueThemeChange() {
-    console.log(this.isDarkMode);
     this.themeService.switchTheme(this.isDarkMode ? "bootstrap4-dark-blue" : "saga-blue");
   }
 
