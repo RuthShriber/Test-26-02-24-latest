@@ -1,0 +1,30 @@
+<div>
+  <p-toast></p-toast>
+  <div id="loader"><mat-progress-bar *ngIf="displayLoading" mode="indeterminate"></mat-progress-bar></div>
+  <p-menubar [model]="items">
+    <ng-template pTemplate="start">
+      <p class="mr-2">WeatherMe</p>
+    </ng-template>
+    <ng-template pTemplate="end">
+      <p-button (click)="sidebarVisible = true" label="More Settings"></p-button>
+    </ng-template>
+  </p-menubar>
+
+  <div id="content-wrapper">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<p-sidebar [(visible)]="sidebarVisible" position="right" width="300">
+  <div class="p-2">
+    <section class="py-4 flex align-items-center justify-content-between border-bottom-1 surface-border"><span
+        class="text-xl font-semibold">Temperature Unit</span>
+      <p-selectButton (onChange)="changeTemperatureUnit()" [options]="unitOptions" [(ngModel)]="valueUnit"
+        optionLabel="label" optionValue="value"></p-selectButton>
+    </section>
+    <section class="py-4 flex align-items-center justify-content-between border-bottom-1 surface-border"><span
+        class="text-xl font-semibold">Dark Mode</span>
+      <p-inputSwitch [(ngModel)]="isDarkMode" (onChange)="valueThemeChange()"></p-inputSwitch>
+    </section>
+  </div>
+</p-sidebar>
