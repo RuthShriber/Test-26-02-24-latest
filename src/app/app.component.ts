@@ -50,7 +50,6 @@ export class AppComponent {
   }
 
   changeTemperatureUnit() {
-    debugger;
     this.weatherService.isMetric = !this.weatherService.isMetric;
     this.weatherService.temperatureUnitChanged.next(null);
   }
