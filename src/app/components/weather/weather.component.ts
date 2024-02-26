@@ -44,11 +44,9 @@ export class WeatherComponent {
               element.Date = new Date(element.Date);
             });
             this.weatherNow = res[0][0];
-          }, error => {
-
           })
         },
-        (error) => { }
+        
       );
     }
   }
